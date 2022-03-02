@@ -7,11 +7,12 @@ int soma(int a1, int b1){
 }
 int main()
 {
- int num1 num2;
+ int num1, num2;
  int resultado;
  printf("Digite um número: \n");
   scanf("%d",&num1);
    printf("Digite um número: \n");
   scanf("%d",&num2);
   resultado= soma(num1, num2);
+  printf("%d",resultado);
 }
