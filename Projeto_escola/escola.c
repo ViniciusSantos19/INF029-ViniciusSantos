@@ -66,6 +66,8 @@ void Ordem_data_aluno();
 void Orderm_alfabetica_professor();
 void Ordem_sexo_professor();
 void Ordem_data_professor();
+void String_busca_aluno();
+void String_busca_professor();
 int main()
 {
   int retorno;
@@ -200,9 +202,18 @@ int main()
            Aniversario_aluno(lista_alunos, qnt_alunos);
            break;
            }
-           case 11:
+           case 11:{
            Aniversario_professor(lista_professor, qnt_professor);
            break;
+            }
+           case 12:{
+             String_busca_aluno(lista_alunos, qnt_alunos);
+             break;
+           }
+           case 13:{
+             String_busca_professor(lista_professor, qnt_professor);
+             break;
+           }
          }
        }
       }
@@ -235,6 +246,8 @@ int Menu_mostrar(){
   printf("Digite - 9 para ordenar os professores por sexo \n");
   printf("Digite - 10 para checar os alunos aniversariantes \n");
   printf("Digite - 11 para checar os professores aniversariantes \n");
+  printf("Digite - 12 para mostrar os alunos com determinada letra no nome \n");
+  printf("Digite - 13 para mostrar os professores com determinada letra no nome \n");
   scanf("%d",&opcao2);
   return opcao2;
 }
@@ -410,6 +423,7 @@ void Mostrar_materia(Materia lista_materia[],int qnt_materia){
   scanf("%d",&verifica_codigo.codigo);
   for(i = 0 ; i < qnt_materia; i++){
     if(verifica_codigo.codigo == lista_materia[i].codigo){
+      printf("\n-----\n");
       printf("O codigo da matéria é: %d \n",lista_materia[i].codigo);
       printf("O nome da matéria é: %s \n",lista_materia[i].nome_mat);
       printf("O semestre da matéria é: %d \n",lista_materia[i].semestre);
@@ -420,7 +434,7 @@ void Mostrar_materia(Materia lista_materia[],int qnt_materia){
 }
 int Validar_cpf(char cpf[]){
   int i=0,a=0,j;
-   int cpf_novo[9];
+   int cpf_novo[11];
    int total_d1=0;
    int total_d2=0;
   if(strlen(cpf)!=14){
@@ -687,4 +701,37 @@ for(i = 0; i < qnt_professor; i++){
     printf("Nenhum professor faz aniversário nessa data \n");
   }
 }
+}
+void String_busca_aluno(Aluno lista_aluno[], int qnt_alunos){
+  int i,j; 
+  char palavra[3]= {"aei"};
+  char aux[50];
+  printf("Digite a as letras que você deseja buscar: \n");
+  fgets(palavra,3,stdin);
+  size_t ln = strlen(palavra) - 1;
+
+    for(j = 0; j < strlen(lista_aluno[j].nome); j++){
+       strcpy(aux,lista_aluno[j].nome);
+      if(aux[j] == palavra[1] || aux[j] == palavra[2 ] || aux[j] == palavra[3]){
+         printf("O nome do aluno tem uma das 3 letras: \n %s ",lista_aluno[j].nome);
+       }
+     } 
+}
+
+void String_busca_professor(Professor lista_professor[], int qnt_professor){
+  int j; 
+  char palavra[3]= {"aei"};
+  char aux[50];
+  printf("Digite a as letras que você deseja buscar: \n");
+  fgets(palavra,3,stdin);
+  size_t ln = strlen(palavra) - 1;
+     
+    for(j = 0; j < strlen(lista_professor[j].nome); j++){
+       strcpy(aux,lista_professor[j].nome);
+      if(aux[j] == palavra[1] || aux[j] == palavra[2 ] || aux[j] == palavra[3]){
+         printf("O nome do Professor tem uma das 3 letras: \n %s",lista_professor[j].nome);
+       }
+     } 
+    
+  
 }
