@@ -55,9 +55,10 @@ int Validar_matricula();
 int Validar_data();
 int Validar_sexo();
 int Validar_semestre();
-int Excluir_materia();
-int Excluir_professor();
-int Execluir_aluno();
+void Busca_aluno();
+void Busca_professor();
+void Aniversario_aluno();
+void Aniversario_professor();
 void Mostrar_materia();
 void Orderm_alfabetica_aluno();
 void Ordem_sexo_aluno();
@@ -194,6 +195,14 @@ int main()
          }
          case 9:{
             Ordem_sexo_professor(lista_professor, qnt_professor);
+           break;
+           case 10:{
+           Aniversario_aluno(lista_professor, qnt_professor);
+           break;
+           }
+           case 11:
+           Aniversario_professor(lista_professor, qnt_professor);
+           break;
          }
        }
       }
@@ -533,11 +542,11 @@ void Orderm_alfabetica_professor(Professor lista_professor[], int qnt_professor)
 }
 void Ordem_sexo_aluno(Aluno lista_aluno[], int qnt_aluno){
   int i;
-  int menu;
-  printf("Digite 1 para mostrar os alunos masculinos: \n");
-  printf("Digite 2 para mostrar as alunas femininas: \n");
-  scanf("%d",&menu);
-  switch(menu){
+  int opcao;
+  printf("Digite 1 para ver os alunos de sexo masculino \n");
+  printf("Digite 2 para ver as alunas de sexo feminino \n");
+  scanf("%d",&opcao);
+  switch(opcao){
     case 1:
     printf("\n## Alunos do sexo masculino ##\n");
     for(i = 0; i < qnt_aluno; i++){
@@ -550,8 +559,8 @@ void Ordem_sexo_aluno(Aluno lista_aluno[], int qnt_aluno){
     printf("Data: %d/ %d / %d \n",lista_aluno[i].data_nascimento.dia, lista_aluno[i].data_nascimento.mes, lista_aluno[i].data_nascimento.ano); 
       }
     }
-    break;
-    case 2:
+      break;
+    case 2: 
     printf("\n## Alunas do sexo feminino ##\n");
     for(i = 0; i < qnt_aluno; i++){
       if(lista_aluno[i].sexo == 'F'){
@@ -562,20 +571,19 @@ void Ordem_sexo_aluno(Aluno lista_aluno[], int qnt_aluno){
     printf("Cpf: %s \n",lista_aluno[i].cpf);
     printf("Data: %d/ %d / %d \n",lista_aluno[i].data_nascimento.dia, lista_aluno[i].data_nascimento.mes, lista_aluno[i].data_nascimento.ano); 
       }
-      break;
-      default:
-      printf("Opção inválida \n");
-      break;
   }
+    break;
+    default:
+    printf("Opção inválida \n");
     }
 }
 void Ordem_sexo_professor(Professor lista_professor[], int qnt_professor){
   int i;
-  int menu;
-  printf("Digite 1 para mostrar os professores masculinos: \n");
-  printf("Digite 2 para mostrar as professoras femininas: \n");
-  scanf("%d",&menu);
-  switch(menu){
+  int opcao;
+  printf("Digite 1 para ver os alunos de sexo masculino \n");
+  printf("Digite 2 para ver as alunas de sexo feminino \n");
+  scanf("%d",&opcao);
+  switch(opcao){
     case 1:
     printf("\n## Professores do sexo masculino ##\n");
     for(i = 0; i < qnt_professor; i++){
@@ -588,7 +596,7 @@ void Ordem_sexo_professor(Professor lista_professor[], int qnt_professor){
     printf("Data: %d/ %d / %d \n",lista_professor[i].data_nascimento.dia, lista_professor[i].data_nascimento.mes, lista_professor[i].data_nascimento.ano); 
       }
     }
-    break;
+      break;
     case 2:
     printf("\n## Professoras do sexo feminino ##\n");
     for(i = 0; i < qnt_professor; i++){
@@ -600,11 +608,11 @@ void Ordem_sexo_professor(Professor lista_professor[], int qnt_professor){
     printf("Cpf: %s \n",lista_professor[i].cpf);
     printf("Data: %d/ %d / %d \n",lista_professor[i].data_nascimento.dia, lista_professor[i].data_nascimento.mes, lista_professor[i].data_nascimento.ano); 
       }
-      break;
-      default:
-      printf("Opção inválida \n");
-      break;
   }
+    break;
+    default:
+    printf("Opcão inválida \n");
+    break;
     }
 }
 void Ordem_data_aluno(Aluno lista_aluno[], int qnt_aluno){
@@ -640,5 +648,41 @@ void Ordem_data_professor(Professor lista_professor[], int qnt_professor){
 for(i = 0; i < qnt_professor; i++){
      printf("O nome do professor é %s \n",lista_professor[i].nome);
     printf("Data: %d/ %d / %d \n",lista_professor[i].data_nascimento.dia, lista_professor[i].data_nascimento.mes, lista_professor[i].data_nascimento.ano); 
+}
+}
+void Aniversario_aluno(Aluno lista_aluno[], int qnt_aluno){
+ Aluno compara;
+int i;
+printf("Digite o dia do aniversário: \n");
+scanf("%d",&compara.data_nascimento.dia);
+printf("Digite o mês do aniversário: \n");
+scanf("%d",&compara.data_nascimento.mes);
+printf("Digite o ano do aniversário: \n");
+scanf("%d",&compara.data_nascimento.ano);
+for(i = 0; i < qnt_aluno; i++){
+  if((compara.data_nascimento.dia == lista_aluno[i].data_nascimento.dia) && (compara.data_nascimento.mes == lista_aluno[i].data_nascimento.mes) && (compara.data_nascimento.ano == lista_aluno[i].data_nascimento.ano )){
+    printf("Feliz aniversário: %s \n",lista_aluno[i].nome);
+  }
+  else{
+    printf("Nenhum aluno faz aniversário nessa data \n");
+  }
+}
+}
+void Aniversario_professor(Professor lista_professor[], int qnt_professor){
+ Professor compara;
+int i;
+printf("Digite o dia do aniversário: \n");
+scanf("%d",&compara.data_nascimento.dia);
+printf("Digite o mês do aniversário: \n");
+scanf("%d",&compara.data_nascimento.mes);
+printf("Digite o ano do aniversário: \n");
+scanf("%d",&compara.data_nascimento.ano);
+for(i = 0; i < qnt_professor; i++){
+  if((compara.data_nascimento.dia == lista_professor[i].data_nascimento.dia) && (compara.data_nascimento.mes == lista_professor[i].data_nascimento.mes) && (compara.data_nascimento.ano == lista_professor[i].data_nascimento.ano )){
+    printf("Feliz aniversário: %s \n !!!",lista_professor[i].nome);
+  }
+  else{
+    printf("Nenhum professor faz aniversário nessa data \n");
+  }
 }
 }
