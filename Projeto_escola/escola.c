@@ -197,7 +197,7 @@ int main()
             Ordem_sexo_professor(lista_professor, qnt_professor);
            break;
            case 10:{
-           Aniversario_aluno(lista_professor, qnt_professor);
+           Aniversario_aluno(lista_alunos, qnt_alunos);
            break;
            }
            case 11:
@@ -233,6 +233,8 @@ int Menu_mostrar(){
   printf("Digite - 7 para ordenar os professores por data \n");
   printf("Digite - 8 para ordenar os alunos por sexo \n");
   printf("Digite - 9 para ordenar os professores por sexo \n");
+  printf("Digite - 10 para checar os alunos aniversariantes \n");
+  printf("Digite - 11 para checar os professores aniversariantes \n");
   scanf("%d",&opcao2);
   return opcao2;
 }
@@ -661,10 +663,10 @@ printf("Digite o ano do aniversário: \n");
 scanf("%d",&compara.data_nascimento.ano);
 for(i = 0; i < qnt_aluno; i++){
   if((compara.data_nascimento.dia == lista_aluno[i].data_nascimento.dia) && (compara.data_nascimento.mes == lista_aluno[i].data_nascimento.mes) && (compara.data_nascimento.ano == lista_aluno[i].data_nascimento.ano )){
-    printf("Feliz aniversário: %s \n",lista_aluno[i].nome);
+    printf("Feliz aniversário: %s \n !!!",lista_aluno[i].nome);
   }
   else{
-    printf("Nenhum aluno faz aniversário nessa data \n");
+    printf("Nenhum professor faz aniversário nessa data \n");
   }
 }
 }
