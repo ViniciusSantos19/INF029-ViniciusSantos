@@ -75,3 +75,12 @@ int Validar_data(int ano, int mes, int dia){
     return aux;  
   }
 }*/
+for(i = 1; i < qnt_professor; i++){
+    aux= lista_professor[i];
+    j = i - 1;
+    while(j >= 0 && ((aux.data_nascimento.ano < lista_professor[j-1].data_nascimento.ano)){
+      lista_professor[j+1]=lista_professor[j];
+      j = j - 1;
+    }
+    lista_professor[j+1] = aux;
+  }
