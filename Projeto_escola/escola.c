@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 #define SUCESSO_CADASTRO -1
 #define ERRO_CADASTRO_MATRICULA -2
 #define ERRO_CADASTRO_SEXO -3
@@ -735,3 +734,4 @@ void String_busca_professor(Professor lista_professor[], int qnt_professor){
     
   
 }
+// Lista de bugs: não consigo colocar o fgets nas  funções de buscar letras
