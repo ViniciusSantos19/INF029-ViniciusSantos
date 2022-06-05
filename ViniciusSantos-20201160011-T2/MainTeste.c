@@ -18,6 +18,7 @@ void testeListaEncadeada();
 
 int main()
 {
+    //Usar o main para executar o programa
     inicializar();
     testeInserirSemNada();
     testeCriarEstrutura();
