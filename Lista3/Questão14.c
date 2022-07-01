@@ -9,7 +9,7 @@ int main()
         printf("Digite um número: \n");
         scanf("%d",&num);
     }while(num % 2 != 0);
-      
+    //coloquei o do while porque a questão falava que a função precisa receber um número par
     
     
     imprimeRecursivo(num);

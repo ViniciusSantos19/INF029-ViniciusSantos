@@ -17,7 +17,7 @@ int main()
         scanf("%ld",&num);
       
   }while(num % 2 == 0);
-  
+  //coloquei o do while pois a questão pede que a função receba um número impar
   aux = farotialRecursivo(num);
   printf("%ld ",aux);
 }

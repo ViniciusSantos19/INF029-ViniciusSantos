@@ -3,7 +3,7 @@ int somaRecursiva(int num);
 int main()
 {
     int num, aux;
-    printf("Digite o número que você gostaria de soma: \n");
+    printf("Digite o número que você gostaria de somar: \n");
     scanf("%d",&num);
     
     aux = somaRecursiva(num);
